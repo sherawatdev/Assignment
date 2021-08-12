@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AssignDao extends JpaRepository<AssignModel, String> {
 
+    AssignModel findByUrl(String url);
+
 }
