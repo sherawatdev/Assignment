@@ -3,6 +3,7 @@ package com.nuchange.assignment.controller;
 import com.nuchange.assignment.model.AssignModel;
 import com.nuchange.assignment.service.AssignService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,4 +26,9 @@ public class AssignController {
 
     @GetMapping("/count")
     public int getCount(@RequestParam String url){ return assignService.getCount(url); }
+
+    @GetMapping("/list")
+    public Page<AssignModel> getList(@RequestParam int page, @RequestParam int size){
+        return assignService.getList(page, size);
+    }
 }
